@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:level1.xcodeproj">
+      location = "self:/Users/cyme/Desktop/iosapp/iosAppPractice/prework/prework.xcodeproj">
    </FileRef>
 </Workspace>

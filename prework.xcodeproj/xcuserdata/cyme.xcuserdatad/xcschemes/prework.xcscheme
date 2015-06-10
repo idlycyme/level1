@@ -15,23 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "33DD3BAF1B1FEB2A0093D75A"
-               BuildableName = "level1.app"
-               BlueprintName = "level1"
-               ReferencedContainer = "container:level1.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "33DD3BC81B1FEB2A0093D75A"
-               BuildableName = "level1Tests.xctest"
-               BlueprintName = "level1Tests"
-               ReferencedContainer = "container:level1.xcodeproj">
+               BuildableName = "prework.app"
+               BlueprintName = "prework"
+               ReferencedContainer = "container:prework.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "33DD3BC81B1FEB2A0093D75A"
-               BuildableName = "level1Tests.xctest"
-               BlueprintName = "level1Tests"
-               ReferencedContainer = "container:level1.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33DD3BAF1B1FEB2A0093D75A"
-            BuildableName = "level1.app"
-            BlueprintName = "level1"
-            ReferencedContainer = "container:level1.xcodeproj">
+            BuildableName = "prework.app"
+            BlueprintName = "prework"
+            ReferencedContainer = "container:prework.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33DD3BAF1B1FEB2A0093D75A"
-            BuildableName = "level1.app"
-            BlueprintName = "level1"
-            ReferencedContainer = "container:level1.xcodeproj">
+            BuildableName = "prework.app"
+            BlueprintName = "prework"
+            ReferencedContainer = "container:prework.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33DD3BAF1B1FEB2A0093D75A"
-            BuildableName = "level1.app"
-            BlueprintName = "level1"
-            ReferencedContainer = "container:level1.xcodeproj">
+            BuildableName = "prework.app"
+            BlueprintName = "prework"
+            ReferencedContainer = "container:prework.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

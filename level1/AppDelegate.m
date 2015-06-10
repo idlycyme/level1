@@ -14,43 +14,28 @@
 
 @implementation AppDelegate
 
-@synthesize alarmOn;
-@synthesize alarmHour;
-@synthesize alarmMin;
-@synthesize alarmMsg;
-@synthesize speaker;
-@synthesize alarmStopped;
-@synthesize flow;
+@synthesize defaultPercent;
+@synthesize selectedLocale;
+@synthesize cacheExipration;
+@synthesize currentAmountText;
 
-
-- (void) stop {
-    [speaker stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+- (int)validIntRange: (UITextField *)label min:(int)min max:(int)max {
+    int inputInt = [label.text intValue];
+    inputInt = inputInt > max ? max : inputInt;
+    inputInt = inputInt < min ? min : inputInt;
+    return inputInt;
 }
-- (void) pause {
-    if (!speaker.isPaused) {
-        [speaker pauseSpeakingAtBoundary:AVSpeechBoundaryImmediate];
-    }
-}
-- (void) speak {
-    if (speaker.isPaused) {
-        [speaker continueSpeaking];
-    } else {
-        NSString* text = [NSString stringWithFormat:@"%@", self.alarmMsg];
-        //NSLog(@"read %@", text);
-       // if (speaker == nil) {
-            speaker = [[AVSpeechSynthesizer alloc]init];
-       // }
-        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:text];
-        [utterance setRate:0.1f];
-        [speaker speakUtterance:utterance];
-      
-    }
+- (double)validfloatRange: (UITextField *)label min:(double)min max:(double)max {
+    double inputInt = [label.text doubleValue];
+    inputInt = inputInt > max ? max : inputInt;
+    inputInt = inputInt < min ? min : inputInt;
+    return inputInt;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.defaultPercent = 30;
+    self.cacheExipration = 10;
     // Override point for customization after application launch.
-    self.alarmOn = NO;
-    self.alarmMsg = (NSMutableString*)@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
     return YES;
 }
 

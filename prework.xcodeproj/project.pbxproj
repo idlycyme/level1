@@ -7,15 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		335327A81B25DEEE001FE175 /* settingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335327A71B25DEEE001FE175 /* settingTableViewController.m */; };
 		33DD3BB61B1FEB2A0093D75A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DD3BB51B1FEB2A0093D75A /* main.m */; };
 		33DD3BB91B1FEB2A0093D75A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DD3BB81B1FEB2A0093D75A /* AppDelegate.m */; };
 		33DD3BBC1B1FEB2A0093D75A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DD3BBB1B1FEB2A0093D75A /* ViewController.m */; };
 		33DD3BBF1B1FEB2A0093D75A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33DD3BBD1B1FEB2A0093D75A /* Main.storyboard */; };
 		33DD3BC11B1FEB2A0093D75A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33DD3BC01B1FEB2A0093D75A /* Images.xcassets */; };
 		33DD3BC41B1FEB2A0093D75A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DD3BC21B1FEB2A0093D75A /* LaunchScreen.xib */; };
-		33DD3BD01B1FEB2A0093D75A /* level1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DD3BCF1B1FEB2A0093D75A /* level1Tests.m */; };
-		33DD3BDB1B2099C10093D75A /* ViewControllerSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DD3BDA1B2099C10093D75A /* ViewControllerSetting.m */; };
-		33DD3BDE1B2350470093D75A /* customSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DD3BDD1B2350470093D75A /* customSegue.m */; };
+		33DD3BD01B1FEB2A0093D75A /* preworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DD3BCF1B1FEB2A0093D75A /* preworkTests.m */; };
 		33DD3BE01B23E0980093D75A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DD3BDF1B23E0980093D75A /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		33DD3BB01B1FEB2A0093D75A /* level1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = level1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		335327A61B25DEEE001FE175 /* settingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingTableViewController.h; sourceTree = "<group>"; };
+		335327A71B25DEEE001FE175 /* settingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingTableViewController.m; sourceTree = "<group>"; };
+		33DD3BB01B1FEB2A0093D75A /* prework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33DD3BB41B1FEB2A0093D75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33DD3BB51B1FEB2A0093D75A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		33DD3BB71B1FEB2A0093D75A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,13 +41,9 @@
 		33DD3BBE1B1FEB2A0093D75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33DD3BC01B1FEB2A0093D75A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		33DD3BC31B1FEB2A0093D75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		33DD3BC91B1FEB2A0093D75A /* level1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = level1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33DD3BC91B1FEB2A0093D75A /* preworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = preworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33DD3BCE1B1FEB2A0093D75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33DD3BCF1B1FEB2A0093D75A /* level1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = level1Tests.m; sourceTree = "<group>"; };
-		33DD3BD91B2099C10093D75A /* ViewControllerSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerSetting.h; sourceTree = "<group>"; };
-		33DD3BDA1B2099C10093D75A /* ViewControllerSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerSetting.m; sourceTree = "<group>"; };
-		33DD3BDC1B2350470093D75A /* customSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customSegue.h; sourceTree = "<group>"; };
-		33DD3BDD1B2350470093D75A /* customSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customSegue.m; sourceTree = "<group>"; };
+		33DD3BCF1B1FEB2A0093D75A /* preworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = preworkTests.m; sourceTree = "<group>"; };
 		33DD3BDF1B23E0980093D75A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -73,8 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				33DD3BDF1B23E0980093D75A /* AudioToolbox.framework */,
-				33DD3BB21B1FEB2A0093D75A /* level1 */,
-				33DD3BCC1B1FEB2A0093D75A /* level1Tests */,
+				33DD3BB21B1FEB2A0093D75A /* prework */,
+				33DD3BCC1B1FEB2A0093D75A /* preworkTests */,
 				33DD3BB11B1FEB2A0093D75A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,28 +79,27 @@
 		33DD3BB11B1FEB2A0093D75A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				33DD3BB01B1FEB2A0093D75A /* level1.app */,
-				33DD3BC91B1FEB2A0093D75A /* level1Tests.xctest */,
+				33DD3BB01B1FEB2A0093D75A /* prework.app */,
+				33DD3BC91B1FEB2A0093D75A /* preworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		33DD3BB21B1FEB2A0093D75A /* level1 */ = {
+		33DD3BB21B1FEB2A0093D75A /* prework */ = {
 			isa = PBXGroup;
 			children = (
 				33DD3BB71B1FEB2A0093D75A /* AppDelegate.h */,
 				33DD3BB81B1FEB2A0093D75A /* AppDelegate.m */,
-				33DD3BDC1B2350470093D75A /* customSegue.h */,
-				33DD3BDD1B2350470093D75A /* customSegue.m */,
 				33DD3BBA1B1FEB2A0093D75A /* ViewController.h */,
 				33DD3BBB1B1FEB2A0093D75A /* ViewController.m */,
 				33DD3BBD1B1FEB2A0093D75A /* Main.storyboard */,
-				33DD3BD91B2099C10093D75A /* ViewControllerSetting.h */,
-				33DD3BDA1B2099C10093D75A /* ViewControllerSetting.m */,
 				33DD3BC01B1FEB2A0093D75A /* Images.xcassets */,
 				33DD3BC21B1FEB2A0093D75A /* LaunchScreen.xib */,
+				335327A61B25DEEE001FE175 /* settingTableViewController.h */,
+				335327A71B25DEEE001FE175 /* settingTableViewController.m */,
 				33DD3BB31B1FEB2A0093D75A /* Supporting Files */,
 			);
+			name = prework;
 			path = level1;
 			sourceTree = "<group>";
 		};
@@ -116,12 +112,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		33DD3BCC1B1FEB2A0093D75A /* level1Tests */ = {
+		33DD3BCC1B1FEB2A0093D75A /* preworkTests */ = {
 			isa = PBXGroup;
 			children = (
-				33DD3BCF1B1FEB2A0093D75A /* level1Tests.m */,
+				33DD3BCF1B1FEB2A0093D75A /* preworkTests.m */,
 				33DD3BCD1B1FEB2A0093D75A /* Supporting Files */,
 			);
+			name = preworkTests;
 			path = level1Tests;
 			sourceTree = "<group>";
 		};
@@ -136,9 +133,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		33DD3BAF1B1FEB2A0093D75A /* level1 */ = {
+		33DD3BAF1B1FEB2A0093D75A /* prework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 33DD3BD31B1FEB2A0093D75A /* Build configuration list for PBXNativeTarget "level1" */;
+			buildConfigurationList = 33DD3BD31B1FEB2A0093D75A /* Build configuration list for PBXNativeTarget "prework" */;
 			buildPhases = (
 				33DD3BAC1B1FEB2A0093D75A /* Sources */,
 				33DD3BAD1B1FEB2A0093D75A /* Frameworks */,
@@ -148,14 +145,14 @@
 			);
 			dependencies = (
 			);
-			name = level1;
+			name = prework;
 			productName = level1;
-			productReference = 33DD3BB01B1FEB2A0093D75A /* level1.app */;
+			productReference = 33DD3BB01B1FEB2A0093D75A /* prework.app */;
 			productType = "com.apple.product-type.application";
 		};
-		33DD3BC81B1FEB2A0093D75A /* level1Tests */ = {
+		33DD3BC81B1FEB2A0093D75A /* preworkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 33DD3BD61B1FEB2A0093D75A /* Build configuration list for PBXNativeTarget "level1Tests" */;
+			buildConfigurationList = 33DD3BD61B1FEB2A0093D75A /* Build configuration list for PBXNativeTarget "preworkTests" */;
 			buildPhases = (
 				33DD3BC51B1FEB2A0093D75A /* Sources */,
 				33DD3BC61B1FEB2A0093D75A /* Frameworks */,
@@ -166,9 +163,9 @@
 			dependencies = (
 				33DD3BCB1B1FEB2A0093D75A /* PBXTargetDependency */,
 			);
-			name = level1Tests;
+			name = preworkTests;
 			productName = level1Tests;
-			productReference = 33DD3BC91B1FEB2A0093D75A /* level1Tests.xctest */;
+			productReference = 33DD3BC91B1FEB2A0093D75A /* preworkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -189,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 33DD3BAB1B1FEB2A0093D75A /* Build configuration list for PBXProject "level1" */;
+			buildConfigurationList = 33DD3BAB1B1FEB2A0093D75A /* Build configuration list for PBXProject "prework" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -202,8 +199,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				33DD3BAF1B1FEB2A0093D75A /* level1 */,
-				33DD3BC81B1FEB2A0093D75A /* level1Tests */,
+				33DD3BAF1B1FEB2A0093D75A /* prework */,
+				33DD3BC81B1FEB2A0093D75A /* preworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -233,11 +230,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33DD3BDE1B2350470093D75A /* customSegue.m in Sources */,
 				33DD3BBC1B1FEB2A0093D75A /* ViewController.m in Sources */,
 				33DD3BB91B1FEB2A0093D75A /* AppDelegate.m in Sources */,
 				33DD3BB61B1FEB2A0093D75A /* main.m in Sources */,
-				33DD3BDB1B2099C10093D75A /* ViewControllerSetting.m in Sources */,
+				335327A81B25DEEE001FE175 /* settingTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33DD3BD01B1FEB2A0093D75A /* level1Tests.m in Sources */,
+				33DD3BD01B1FEB2A0093D75A /* preworkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +250,7 @@
 /* Begin PBXTargetDependency section */
 		33DD3BCB1B1FEB2A0093D75A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 33DD3BAF1B1FEB2A0093D75A /* level1 */;
+			target = 33DD3BAF1B1FEB2A0093D75A /* prework */;
 			targetProxy = 33DD3BCA1B1FEB2A0093D75A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -365,7 +361,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = level1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = prework;
 			};
 			name = Debug;
 		};
@@ -375,7 +371,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = level1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = prework;
 			};
 			name = Release;
 		};
@@ -391,9 +387,9 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = level1Tests/Info.plist;
+				INFOPLIST_FILE = preworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = preworkTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/level1.app/level1";
 			};
 			name = Debug;
@@ -406,9 +402,9 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = level1Tests/Info.plist;
+				INFOPLIST_FILE = preworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = preworkTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/level1.app/level1";
 			};
 			name = Release;
@@ -416,7 +412,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		33DD3BAB1B1FEB2A0093D75A /* Build configuration list for PBXProject "level1" */ = {
+		33DD3BAB1B1FEB2A0093D75A /* Build configuration list for PBXProject "prework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33DD3BD11B1FEB2A0093D75A /* Debug */,
@@ -425,21 +421,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		33DD3BD31B1FEB2A0093D75A /* Build configuration list for PBXNativeTarget "level1" */ = {
+		33DD3BD31B1FEB2A0093D75A /* Build configuration list for PBXNativeTarget "prework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33DD3BD41B1FEB2A0093D75A /* Debug */,
 				33DD3BD51B1FEB2A0093D75A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		33DD3BD61B1FEB2A0093D75A /* Build configuration list for PBXNativeTarget "level1Tests" */ = {
+		33DD3BD61B1FEB2A0093D75A /* Build configuration list for PBXNativeTarget "preworkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33DD3BD71B1FEB2A0093D75A /* Debug */,
 				33DD3BD81B1FEB2A0093D75A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

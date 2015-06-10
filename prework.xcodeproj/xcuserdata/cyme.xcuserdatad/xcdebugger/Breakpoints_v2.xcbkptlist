@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "level1/ViewControllerSetting.m"
-            timestampString = "455339686.910841"
+            filePath = "level1/ViewController.m"
+            timestampString = "455644825.960466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "-stepperValueChanged:"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-percentChanged:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

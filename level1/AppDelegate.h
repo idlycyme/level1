@@ -12,16 +12,12 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property int alarmHour;
-@property int alarmMin;
-@property NSMutableString* alarmMsg;
-@property BOOL alarmOn;
-@property AVSpeechSynthesizer* speaker;
-@property BOOL alarmStopped;
-@property (atomic) int flow;
+@property int defaultPercent;
+@property (weak, nonatomic) NSString *selectedLocale;
+@property int cacheExipration;
+@property NSString* currentAmountText;
 
-- (void) speak;
-- (void) pause;
-- (void) stop;
+-(int) validIntRange: (UITextField *)label min:(int)min max:(int)max;
+
 @end
 

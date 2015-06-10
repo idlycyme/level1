@@ -8,17 +8,9 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
-//#import "ViewControllerSetting.h"
 #import <Foundation/Foundation.h>
-#import <AudioToolbox/AudioToolbox.h>
 @interface ViewController () {
-    NSTimer* timer;
-    NSThread* thread;
-    BOOL isThreadAlive;
-    NSDateFormatter* formatter;
     AppDelegate *appDelegate;
-    NSCalendar *calendar;
-    
 }
 
 @end
@@ -27,136 +19,88 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.stopAlarm.enabled = NO;
+
     appDelegate = [[UIApplication sharedApplication] delegate];
-    appDelegate.flow = 0;
-
-    calendar = [NSCalendar currentCalendar];
-    formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm:ss zzz"];
+    self.percentLabel.text = [NSString stringWithFormat:@"%d", appDelegate.defaultPercent];
+    self.percentSlider.value = appDelegate.defaultPercent;
+    [[UITextField appearance] setTintColor:[UIColor blackColor]];
     
-    [self timerOn];
-    
-    
-   /*
-    // Do any additional setup after loading the view, typically from a nib.
-    [self.scrollViewMain setPagingEnabled:YES];
-    [self.scrollViewMain setShowsHorizontalScrollIndicator: YES];
-    [self.scrollViewMain setShowsVerticalScrollIndicator: NO];
-    [self.scrollViewMain setScrollsToTop: YES];
-    CGFloat width, height;
-    width = self.scrollViewMain.frame.size.width;
-    height = self.scrollViewMain.frame.size.height;
-    [self.scrollViewMain setContentSize:CGSizeMake(width*2, height)];
-    NSLog(@"======== %f", self.scrollViewMain.contentOffset.x);
-*/
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *stringValue = [defaults objectForKey:@"lastAmount"];
+    double lastSaveTime = [defaults doubleForKey:@"lastSaveTime"];
 
-}
-
-- (IBAction)stopAlarmMsg:(id)sender {
-    [appDelegate stop];
-}
-
-- (void)timerOn {
-    if (thread == nil) {
-        timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(showTime) userInfo:nil repeats:YES];
+    appDelegate.cacheExipration = (int)[defaults integerForKey:@"cacheExpiration"];
+    NSDate* date = [NSDate date];
+    NSTimeInterval epochSeconds = [date timeIntervalSince1970];
+    if (stringValue != nil && (epochSeconds - lastSaveTime < appDelegate.cacheExipration*60)) {
+        self.billAmountTextField.text = stringValue;
+        appDelegate.selectedLocale = [defaults objectForKey:@"defaultLocale"];
+    } else if (appDelegate.selectedLocale == nil) {
+        appDelegate.selectedLocale = @"zh_Hant_TW";
     }
-}
-
-- (void)timerOff {
-    if (thread != nil) {
-        [timer invalidate];
-        timer = nil;
+    self.billAmountTextField.adjustsFontSizeToFitWidth = YES;
+    self.tipLabel.adjustsFontSizeToFitWidth = YES;
+    
+    if (appDelegate.currentAmountText) {
+        self.billAmountTextField.text = appDelegate.currentAmountText;
     }
+    [self calculateTip];
 }
 
-- (void) showStatus {
-    if (!appDelegate.speaker.isSpeaking) {
-        self.view.backgroundColor = [UIColor whiteColor];
-        
-        self.status.font = [self.status.font fontWithSize:23];
-        //self.status.backgroundColor = [UIColor whiteColor];
-        self.stopAlarm.enabled = NO;
-        self.stopAlarm.hidden = YES;
-        if (appDelegate.alarmOn) {
-            self.status.text = @"You've set up an alarm";
-        }else{
-            self.status.text = @"";
-        }
+- (void)viewWillAppear:(BOOL)animated {
+    [self.billAmountTextField becomeFirstResponder];
+}
+
+- (IBAction)amountChanged:(id)sender {
+    appDelegate.currentAmountText = self.billAmountTextField.text;
+    [self saveAmount];
+    [self calculateTip];
+}
+- (IBAction)percentSliding:(id)sender {
+    [self calculateTip];
+    self.percentLabel.text = [NSString stringWithFormat:@"%d", (int)self.percentSlider.value];
+}
+- (IBAction)percentChanged:(id)sender {
+    int validPercentage =[appDelegate validIntRange:self.percentLabel min:0 max:100];
+    self.percentLabel.text = [NSString stringWithFormat:@"%d", validPercentage];
+    [self calculateTip];
+    self.percentSlider.value = [self.percentLabel.text intValue];
+}
+- (void)saveAmount {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.billAmountTextField.text forKey:@"lastAmount"];
+    
+    NSDate* date = [NSDate date];
+    NSTimeInterval epochSeconds = [date timeIntervalSince1970];
+    [defaults setDouble:epochSeconds forKey:@"lastSaveTime"];
+    [defaults synchronize];
+}
+
+- (void)calculateTip {
+    NSString *amt;
+    if (![self.billAmountTextField.text isEqualToString:@""]) {
+        amt = self.billAmountTextField.text;
     } else {
-        if (self.view.backgroundColor == [UIColor whiteColor]) {
-        self.view.backgroundColor = [UIColor redColor];
-        } else {
-        self.view.backgroundColor = [UIColor whiteColor];
-        }
-        
-        UILabel* status = self.status;
-        status.font = [status.font fontWithSize:50];
-        if ([status.text isEqual:@"IS"]) {
-            status.text = @"UP";
-        } else if ([status.text isEqual:@"TIME"]){
-            status.text = @"IS";
-        } else {
-            status.text = @"TIME";
-        }
-        //status.backgroundColor = [UIColor redColor];
-        //status.text = @"Time is up!!!!";
-        self.stopAlarm.hidden = NO;
-        self.stopAlarm.enabled = YES;
-        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        amt = @"0";
     }
-    [self.view setNeedsDisplay];
-//AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+    NSLog(@"%@",appDelegate.selectedLocale);
+    NSDecimalNumber *amount = [NSDecimalNumber decimalNumberWithString:amt];
+    
+    NSDecimalNumber *per = [NSDecimalNumber decimalNumberWithString:self.percentLabel.text];
+    
+    NSDecimalNumber *tip = [amount decimalNumberByMultiplyingBy:per];
+    tip = [tip decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"100"]];
+
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:appDelegate.selectedLocale];
+    [currencyFormatter setLocale:locale];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    
+    self.tipLabel.text = [currencyFormatter stringFromNumber:tip];
+    //NSLog(@"%@", [currencyFormatter stringFromNumber:tip]);
 }
 
-- (void)showTime {
-    NSDate *date = [NSDate date];
-    
-    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitTimeZone) fromDate:date];
-    int hour = (int)[components hour];
-    int minute = (int)[components minute];
-    int second = (int)[components second];
-    NSTimeZone* zone = [components timeZone];
-    //NSLog(@"h %d m %d", hour, minute);
-    //self.currentTimeLabel.text = [formatter stringFromDate:date];
-    //NSLog(@"sec is %d", second);
-    self.currentTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hour, minute, second];
-    self.currentTimeZoneLabel.text = [NSString stringWithFormat:@"%@", [zone abbreviation]];
-    [self showStatus];
 
-    if (
-        appDelegate.alarmOn &&
-        hour == appDelegate.alarmHour &&
-        minute == appDelegate.alarmMin
-        
-        ) {
- 
-        
-        if (appDelegate.alarmStopped ||
-            appDelegate.flow != 0 ||
-            appDelegate.speaker.isSpeaking
-            ) {
-            return;
-        }
-        
-        appDelegate.alarmStopped = YES;
-
-        [appDelegate speak];
-        /*
-        NSLog(@"switch %d, h %d, m %d, msg %@",
-              appDelegate.alarmOn,
-              appDelegate.alarmHour,
-              appDelegate.alarmMin,
-              appDelegate.alarmMsg
-              );
-         */
-        
-    } else {
-        appDelegate.alarmStopped = NO;
-    }
-    
-
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
